@@ -8,9 +8,6 @@ class Card{
         this.other = other;
         this.type = type;
         this.player = player;
-        if (typeof(year) != "number"){
-            console.log("Invalid year");
-        }
         this.year = year;
         this.image = image;
     }
@@ -57,8 +54,9 @@ function CreateNewCard(card){
     var image = document.querySelector("#img-preview")
     const cardIMG = newCard.querySelector(".card-img-top");
     
-    console.log("image src " + image.src);
-    if (image != ""){
+    const imageInput = document.getElementById("imageUpload");
+    console.log(imageInput.value);
+    if (imageInput.value != ""){
         cardIMG.src = image.src;
         console.log("Valid image")
     }
@@ -162,6 +160,7 @@ function processForm() {
 function ValidateImage(path) {
     var extension = path.substring(path.lastIndexOf('.') + 1).toLowerCase();
     console.log(extension);
+
     if (extension == "gif" || extension == "png" || extension == "bmp" || extension == "jpeg" || extension == "jpg")
     {
         return true;
