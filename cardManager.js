@@ -58,12 +58,13 @@ function CreateNewCard(card){
     const cardIMG = newCard.querySelector(".card-img-top");
     
     console.log("image src " + image.src);
-    if (ValidateImage(image.src)){
+    if (image != ""){
         cardIMG.src = image.src;
         console.log("Valid image")
     }
     else{
         cardIMG.src = card.image;
+        console.log(card.image)
     }
 
     image.src = ""
