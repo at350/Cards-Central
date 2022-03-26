@@ -18,9 +18,10 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="/card.jpg" />
         <script type="text/javascript" src="cardManager.js"></script>
     </head>
-    <body>
+    <body class="mb-3">
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
             <!-- <div class="container-fluid">
           <a class="navbar-brand" href="#">CARDS CENTRAL</a> -->
@@ -75,7 +76,11 @@
             <!-- <div class="flex-container"> -->
             <div id="cards-div" class="flex-container">
                 <div class="cardTemplate" id="cardTemplate">
-                    <img class="card-img-top" src="michael_jordan.jpeg" alt="" />
+                    <img
+                        class="card-img-top"
+                        src="michael_jordan.jpeg"
+                        alt=""
+                    />
                     <div class="card-body">
                         <h5 class="card-title">Demo Card</h5>
                         <div class="card-text">
@@ -85,11 +90,13 @@
                             </p>
                             <p id="card-year"><b>Year:</b> 1985</p>
                             <p id="card-other">
-                                <b>Other Info:</b> Very rare card. 
-                                Worth $32,000.
+                                <b>Other Info:</b> Very rare card. Worth
+                                $32,000.
                             </p>
                         </div>
-                        <a href="" class="btn btn-outline-success btn-sm"
+                        <a
+                            class="btn btn-outline-success btn-sm"
+                            onlick="openEditForm()"
                             >Edit</a
                         >
                         <a
@@ -122,14 +129,56 @@
             <!-- THE BELOW "ERROR" IS NOT AN ERROR??? vsc is just bad -->
             <form onsubmit="return processForm()" class="form-container">
                 <h1>Add a Card</h1>
-                <label for="cTit"><b>Title</b></label>
-                <input type="text" name="cTit" id="cTit" required />
-                <label for="cType"><b>Type</b></label>
-                <input type="text" name="cType" id="cType" required />
-                <label for="cPlayer"><b>Player</b></label>
-                <input type="text" name="cPlayer" id="cPlayer" required />
-                <label for="cYear"><b>Year</b></label>
-                <input type="number" name="cYear" id="cYear" min="0" required />
+                <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
+                <div class="input-group mb-2">
+                    <label for="cTit" class="input-group-text p-1"
+                        ><b>Title</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cTit"
+                        id="cTit"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cType" class="input-group-text p-1"
+                        ><b>Type</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cType"
+                        id="cType"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cPlayer" class="input-group-text p-1"
+                        ><b>Player</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cPlayer"
+                        id="cPlayer"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cYear" class="input-group-text p-1"
+                        ><b>Year</b></label
+                    >
+                    <input
+                        type="number"
+                        name="cYear"
+                        id="cYear"
+                        min="0"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
                 <label for="msg"><b>Other Info</b></label>
                 <textarea
                     placeholder="This card is in good quality..."
@@ -144,16 +193,21 @@
                     ><b>Upload an Image of Your Card</b></label
                 >
                 <input
+                    onchange="previewFile(event)"
                     id="imageUpload"
                     type="file"
                     accept="image/*"
                     name="profile_photo"
                     placeholder="Photo"
+                    class="form-control"
                     capture
                 />
+
+                <img id="img-preview" width="100"></img>
                 <!-- Testing -->
 
                 <button type="submit" class="btn mt-3">Add</button>
+
                 <button type="button" class="btn cancel" onclick="closeForm()">
                     Close
                 </button>

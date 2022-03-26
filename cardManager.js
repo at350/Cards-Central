@@ -54,10 +54,24 @@ function CreateNewCard(card){
     const other = newCard.querySelector("#card-other")
     other.innerHTML = "Other: ".bold() + card.other;
 
+    var image = document.querySelector("#img-preview")
     const cardIMG = newCard.querySelector(".card-img-top");
-    cardIMG.src = card.image;
+    
+    console.log("image src " + image.src);
+    if (ValidateImage(image.src)){
+        cardIMG.src = image.src;
+        console.log("Valid image")
+    }
+    else{
+        cardIMG.src = card.image;
+    }
 
+    image.src = ""
     numCreatedCards++;
+}
+function previewFile(event) {
+    var image = document.querySelector("#img-preview");
+    image.src = URL.createObjectURL(event.target.files[0]);
 }
 
 function DeleteCard(buttonElement){
@@ -95,7 +109,6 @@ function processForm() {
     // cardName, type, player, year, other = Object.values(data.entries);
     for (let [k, v] of data.entries())
     {
-
         switch(temp){
             case 0:
                 cardName = v;
@@ -119,17 +132,17 @@ function processForm() {
         temp++;
     }
     
-    if (temp === 5)
-    {
-        // image = document.querySelector(card-img-top);
-        // there will be multiple ---- this then???? just the below???
-        image.src = "imgs/pattern1.jpeg";
-    }
-    // hopefully the above works
 
-    console.log(cardName + " " + type +" "+player+" "+year+" "+other+" "+image.src);
+    console.log(cardName + " " + type +" "+player+" "+year+" "+other+" ");
 
-    let testCard = new Card(cardName, type, player, year, other, image);
+    // if (ValidateImage(image)){
+    //     let testCard = new Card(cardName, type, player, year, other, image);
+    // }
+    // else{
+    //     let testCard = new Card(cardName, type, player, year, other);
+    // }
+
+    let testCard = new Card(cardName, type, player, year, other);
     CreateNewCard(testCard);
 
     // clear input field
@@ -145,12 +158,30 @@ function processForm() {
     return false;
 }
 
+function ValidateImage(path) {
+    var extension = path.substring(path.lastIndexOf('.') + 1).toLowerCase();
+    console.log(extension);
+    if (extension == "gif" || extension == "png" || extension == "bmp" || extension == "jpeg" || extension == "jpg")
+    {
+        return true;
+    }
+    else
+    {
+        console.log("Invalid image file")
+        return false;
+    }
+}
+
 function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+}
+
+function openEditForm(){
+    document.getElementById("editForm").style.display = "block";
 }
 
 

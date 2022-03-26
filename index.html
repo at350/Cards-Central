@@ -11,7 +11,11 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
+        <link rel="icon"  href="/card.jpg"/>
         <title>Cards Central</title>
     </head>
     <body>
@@ -95,7 +99,7 @@
                 <!-- Content -->
                 <div class="container">
                     <!--Grid row-->
-                    <div class="row">
+                    <div class="row align-items-center">
                         <!--Grid column-->
                         <div
                             class="col-lg-6 text-center text-md-left mt-5 mb-5 fadeInLeft rounded bg-toptest"
@@ -121,6 +125,7 @@
                         <div
                             class="col-lg-6 col-xl-5 mt-5 fadeInRight"
                             data-wow-delay="0.3s"
+                            id = "introcard"
                         >
                             <img
                                 src="card.jpg"
@@ -136,15 +141,15 @@
 <!-- just seeing how large it is so added bg color-->
 
         <div class="container bg-light">
-            <div class="row">
-                <div class="col">
-                    <h1 class="h1-responsive fw-bold mt-5">Upload cards!</h1>
+            <div class="row ">
+                <div class="col-4">
+                    <h1 class="h1-responsive fw-bold mt-5 text-center">Upload cards!</h1>
                 </div>
-                <div class="col">
-                    <h1 class="h1-responsive fw-bold mt-5">Share with friends!</h1>
+                <div class="col-4">
+                    <h1 class="h1-responsive fw-bold mt-5 text-center">Share with friends!</h1>
                 </div>
-                <div class="col">
-                    <h1 class="h1-responsive fw-bold mt-5">Meet new people!</h1>
+                <div class="col-4">
+                    <h1 class="h1-responsive fw-bold mt-5 text-center">Meet new people!</h1>
                 </div>
             </div>
         </div>
