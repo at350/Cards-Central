@@ -2,6 +2,9 @@
 
 let numCreatedCards = 0;
 let cardIDInfo = {};
+
+const editButtonCaller = "";
+
 class Card{
     constructor(cardName, type, player, year, other, image="default.png"){
         this.cardName = cardName;
@@ -85,8 +88,9 @@ function DeleteCard(buttonElement){
     }
 }
 
-function EditCard(buttonElement){
-    const cardDiv = buttonElement.parentNode.parentNode;
+function EditCard(){
+    const cardDiv = editButtonCaller.parentNode.parentNode;
+
     if (cardDiv.id == "cardTemplate"){
         return; 
     }
@@ -96,7 +100,9 @@ function EditCard(buttonElement){
     console.log(cardDiv.id);
     console.log(current_card);
 
+    closeEditForm();
 
+    return false; // this didnt work
     // edit function
 }
 
@@ -110,7 +116,7 @@ function processForm() {
     data.append("msg", document.getElementById("msg").value);
     data.append("image", document.getElementById("imageUpload").value);
 
-    var temp = 0;
+    temp = 0;
     for (let [k, v] of data.entries())
     {
         switch(temp){
@@ -135,7 +141,6 @@ function processForm() {
         }
         temp++;
     }
-
     console.log(cardName + " " + type +" "+player+" "+year+" "+other+" ");
 
     let testCard = new Card(cardName, type, player, year, other);
@@ -175,6 +180,12 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    document.getElementById("cTit").value = "";
+    document.getElementById("cType").value = "";
+    document.getElementById("cPlayer").value = "";
+    document.getElementById("cYear").value = "";
+    document.getElementById("msg").value = "";
+    document.getElementById("imageUpload").value = "";
 }
 
 function openEditForm(buttonElement){
@@ -184,9 +195,16 @@ function openEditForm(buttonElement){
         return;
     }
     document.getElementById("editform").style.display = "block";
+    editButtonCaller = buttonElement;
 }
 
 function closeEditForm(){
     document.getElementById("editform").style.display = "none";
+    document.getElementById("cTitE").value = "";
+    document.getElementById("cTypeE").value = "";
+    document.getElementById("cPlayerE").value = "";
+    document.getElementById("cYearE").value = "";
+    document.getElementById("msgE").value = "";
+    document.getElementById("imageUploadE").value = "";
 }
 

@@ -98,7 +98,10 @@
                             </p>
                         </div>
                         <!-- OPENING EDIT FORM BUTTON -->
-                        <button type="button" class="btn btn-outline-success btn-sm" onclick="openEditForm(this)">Edit</button>
+                        <button 
+                        type="button" 
+                        class="btn btn-outline-success btn-sm" 
+                        onclick="openEditForm(this)">Edit</button>
                         <!-- DELETE CARD BUTTON -->
                         <a
                             class="btn-outline-danger btn p-1"
@@ -129,7 +132,7 @@
         <!-- THIS IS THE ADD CARD FORM -->
         <div class="chat-popup" id="myForm">
             <!-- THE BELOW "ERROR" IS NOT AN ERROR??? vsc is just bad -->
-            <form onsubmit="return processForm()" class="form-container">
+            <form class="form-container">
                 <h1 class="text-center">Add a Card</h1>
                 <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
                 <div class="input-group mb-2">
@@ -208,8 +211,7 @@
                 <img id="img-preview" src="" width="100"></img>
                 <!-- Testing -->
 
-                <button type="submit" class="btn mt-3">Add</button>
-
+                <button type="button" class="btn mt-3" onclick="return processForm(this)">Add</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">
                     Close
                 </button>
@@ -217,7 +219,8 @@
         </div>
         <!-- THIS IS THE EDIT FORM -->
          <div class="edit-popup" id="editform">
-            <form onsubmit="return EditCard(this)" class="form-container">
+            <form class="form-container">
+                <!-- try now -->
                 <h1 class="text-center">Edit Card</h1>
                 <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
                 <div class="input-group mb-2">
@@ -227,7 +230,7 @@
                     <input
                         type="text"
                         name="cTit"
-                        id="cTit"
+                        id="cTitE"
                         class="border border-dark rounded-end rounded-3"
                     />
                 </div>
@@ -238,7 +241,7 @@
                     <input
                         type="text"
                         name="cType"
-                        id="cType"
+                        id="cTypeE"
                         class="border border-dark rounded-end rounded-3"
                     />
                 </div>
@@ -249,7 +252,7 @@
                     <input
                         type="text"
                         name="cPlayer"
-                        id="cPlayer"
+                        id="cPlayerE"
                         class="border border-dark rounded-end rounded-3"
                     />
                 </div>
@@ -260,7 +263,7 @@
                     <input
                         type="number"
                         name="cYear"
-                        id="cYear"
+                        id="cYearE"
                         min="0"
                         class="border border-dark rounded-end rounded-3"
                     />
@@ -269,7 +272,7 @@
                 <textarea
                     placeholder="This card is in good quality..."
                     name="msg"
-                    id="msg"
+                    id="msgE"
                 ></textarea>
 
                 <!-- Testing -->
@@ -279,7 +282,7 @@
                 >
                 <input
                     onchange="previewFile(event)"
-                    id="imageUpload"
+                    id="imageUploadE"
                     type="file"
                     accept="image/*"
                     name="profile_photo"
@@ -290,9 +293,11 @@
 
                 <img id="img-preview" src="" width="100"></img>
                 <!-- Testing -->
+                
+                <!-- SO NOW IM SEEING IF DOING THE ONSUBMIT HERE WILL WORK -->
+                <!-- IT WORKED!!! :)))))))))))))) -->
 
-                <button type="submit" class="btn mt-3">Edit</button>
-
+                <button type="button" class="btn mt-3" onclick="return EditCard()">Edit</button>
                 <button type="button" class="btn cancel" onclick="closeEditForm()">
                     Close
                 </button>
