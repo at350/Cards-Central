@@ -1,0 +1,223 @@
+.bg-toptest {
+    background-color: #a0e7f5 !important;
+    border: 5px solid black;
+}
+
+.top-image {
+    height: 80%;
+}
+
+body {
+    background-color: rgb(255, 255, 253);
+}
+
+.chat-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}
+
+.chat-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px;
+    background-color: rgb(180, 73, 73);
+    color: #fff;
+    font-size: 22px;
+    border: none;
+}
+
+/* Copy paste */
+
+body {
+    font-family: Dosis, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.chat-popup {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    max-height: 80%;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+}
+
+.form-container textarea:focus {
+    background-color: rgba(230, 230, 230, 0.897);
+    outline: none;
+}
+
+.form-container .btn {
+    background-color: #378f6e;
+    color: rgb(255, 253, 235);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: rgb(170, 43, 43);
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+#check {
+    display: none;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.cardTemplate {
+    display: inline-block;
+    margin: 10px;
+    background-color: #cfcfcf;
+    animation-name: create-card;
+    animation-duration: 1s;
+}
+
+@keyframes create-card {
+    from {
+        width: 1%;
+    }
+    to {
+        width: 25%;
+    }
+}
+
+@media (min-width: 768px) {
+    .cardTemplate {
+        display: inline-block;
+        width: 25%;
+        /* max-height: 1000px; */
+    }
+
+    .card-img-top {
+        width: 100%;
+        /* max-height: 700px; */
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .cardTemplate {
+        display: inline-block;
+        width: 50%;
+    }
+
+    .cardTemplate.top-image {
+        max-width: 200px;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch;
+    }
+}
+
+/* #introcard {
+    justify-content: center;
+    align-items: center;
+} */
+
+.top-image {
+    max-width: 70%;
+}
+
+@media (min-width: 576px) {
+    .top-image {
+        margin-bottom: 30px;
+    }
+}
+
+.form-container {
+    /* max-width: 70%; */
+    @media (max-width: 600px) {
+        scale: 50%;
+    }
+}
+
+.edit-popup {
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+}
+
+/* #myForm {
+    transition: display 2s, display 2s;
+}
+
+#editform {
+    transition: display 2s, display 2s;
+} */
+
+/* in the process of googling right now */
+
+/* .edit-popup:hover {
+    animation-name: forms;
+    animation-duration: .5s;
+}
+
+@keyframes forms {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} */

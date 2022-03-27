@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Cards</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+            integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+            crossorigin="anonymous"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="icon" href="/card.jpg" />
+        <script type="text/javascript" src="cardManager.js"></script>
+    </head>
+    <body class="mb-3">
+        <!-- <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light"> -->
+            <!-- <div class="container-fluid">
+          <a class="navbar-brand" href="#">CARD CENTRAL</a> -->
+            <!-- <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-person-badge-fill"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"
+                        />
+                    </svg>
+                    CARD CENTRAL
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="#"
+                                >My Cards</a
+                            >
+                        </li>
+                    </ul>
+                    <a href="profile.html">
+                        <button class="btn btn-outline-success" type="button">
+                            Profile
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+            <!-- <div class="container-fluid">
+              <a class="navbar-brand" href="#">CARD CENTRAL</a> -->
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <!-- <img
+                        src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+                        alt=""
+                        width="30"
+                        height="24"
+                        class="d-inline-block align-text-top"
+                    /> -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-person-badge-fill"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"
+                        />
+                    </svg>
+                    CARD CENTRAL
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="cards.html"
+                                ><b>
+                                    My Cards
+                                </b></a
+                            >
+                        </li>
+                    </ul>
+                    <!-- <ul class="navbar-nav justify-content-end">
+                        <li>
+                            <button class="btn btn-outline-success" type="button">
+                                Profile
+                            </button>
+                        </li>
+                    </ul> -->
+                    <a href="profile.html">
+                        <button class="btn btn-outline-success" type="button">
+                            <b>Profile</b>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section id="gallery">
+            <h1 class="m-5">Your Cards</h1>
+            <!-- <div class="flex-container"> -->
+            <div id="cards-div" class="flex-container">
+                <div class="cardTemplate" id="cardTemplate">
+                    <img
+                        class="card-img-top"
+                        src="default.png"
+                        alt=""
+                    />
+                    <div class="card-body">
+                        <h5 class="card-title"><b>Demo Card</b></h5>
+                        <div class="card-text">
+                            <p id="card-type"><b>Type:</b> N/A</p>
+                            <p id="card-player">
+                                <b>Player:</b> N/A
+                            </p>
+                            <p id="card-year"><b>Year:</b> N/A</p>
+                            <p id="card-other">
+                                <b>Other Info:</b> Treat this card like treasure!
+                            </p>
+                        </div>
+                        <!-- OPENING EDIT FORM BUTTON -->
+                        <button 
+                        type="button" 
+                        class="btn btn-outline-success btn-sm" 
+                        onclick="openEditForm(this)">Edit</button>
+                        <!-- DELETE CARD BUTTON -->
+                        <a
+                            class="btn-outline-danger btn p-1"
+                            onclick="return DeleteCard(this)"
+                            ><svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-trash"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </section>
+
+        <!-- THIS IS THE ADD CARD FORM -->
+        <div class="chat-popup" id="myForm">
+            <!-- THE BELOW "ERROR" IS NOT AN ERROR??? vsc is just bad -->
+            <form class="form-container">
+                <h1 class="text-center">Add a Card</h1>
+                <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
+                <div class="input-group mb-2">
+                    <label for="cTit" class="input-group-text p-1"
+                        ><b>Title</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cTit"
+                        id="cTit"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cType" class="input-group-text p-1"
+                        ><b>Type</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cType"
+                        id="cType"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cPlayer" class="input-group-text p-1"
+                        ><b>Player</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cPlayer"
+                        id="cPlayer"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cYear" class="input-group-text p-1"
+                        ><b>Year</b></label
+                    >
+                    <input
+                        type="number"
+                        name="cYear"
+                        id="cYear"
+                        min="0"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <label for="msg"><b>Other Info</b></label>
+                <textarea
+                    placeholder="This card is in good quality..."
+                    name="msg"
+                    id="msg"
+                    required
+                ></textarea>
+
+                <!-- Testing -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <label for="imageUpload"
+                    ><b>Upload an Image of Your Card</b></label
+                >
+                <input
+                    onchange="previewFile(event)"
+                    id="imageUpload"
+                    type="file"
+                    accept="image/*"
+                    name="profile_photo"
+                    placeholder="Photo"
+                    class="form-control"
+                    capture
+                />
+
+                <img id="img-preview" src="" width="100"></img>
+                <!-- Testing -->
+
+                <button type="button" class="btn mt-3" onclick="return processForm(this)">Add</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">
+                    Close
+                </button>
+            </form>
+        </div>
+        <!-- THIS IS THE EDIT FORM -->
+         <div class="edit-popup" id="editform">
+            <form class="form-container">
+                <!-- try now -->
+                <h1 class="text-center">Edit Card</h1>
+                <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
+                <div class="input-group mb-2">
+                    <label for="cTit" class="input-group-text p-1"
+                        ><b>Title</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cTit"
+                        id="cTitE"
+                        class="border border-dark rounded-end rounded-3"
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cType" class="input-group-text p-1"
+                        ><b>Type</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cType"
+                        id="cTypeE"
+                        class="border border-dark rounded-end rounded-3"
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cPlayer" class="input-group-text p-1"
+                        ><b>Player</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cPlayer"
+                        id="cPlayerE"
+                        class="border border-dark rounded-end rounded-3"
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cYear" class="input-group-text p-1"
+                        ><b>Year</b></label
+                    >
+                    <input
+                        type="number"
+                        name="cYear"
+                        id="cYearE"
+                        min="0"
+                        class="border border-dark rounded-end rounded-3"
+                    />
+                </div>
+                <label for="msg"><b>Other Info</b></label>
+                <textarea
+                    placeholder="This card is in good quality..."
+                    name="msg"
+                    id="cOtherE"
+                ></textarea>
+
+                <!-- Testing -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <label for="imageUpload"
+                    ><b>Upload an Image of Your Card</b></label
+                >
+                <input
+                    onchange="previewFileE(event)"
+                    id="imageUploadE"
+                    type="file"
+                    accept="image/*"
+                    name="profile_photo"
+                    placeholder="Photo"
+                    class="form-control"
+                    capture
+                />
+                
+                <img id="img-previewE" src="" width="100"></img>
+                <!-- Testing -->
+                
+                <!-- SO NOW IM SEEING IF DOING THE ONSUBMIT HERE WILL WORK -->
+                <!-- IT WORKED!!! :)))))))))))))) -->
+
+                <button type="button" class="btn mt-3" onclick="return EditCard()">Edit</button>
+                <button type="button" class="btn cancel" onclick="closeEditForm()">
+                    Close
+                </button>
+            </form>
+        </div>
+        <input type="button" id="check" onclick="openForm()" />
+        <label class="chat-btn" for="check">
+            <i class="fa fa-commenting-o comment"></i>
+            <i class="fa fa-close close"></i>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                fill="currentColor"
+                class="bi bi-plus-lg"
+                viewBox="0 0 16 16"
+            >
+                <path
+                    fill-rule="evenodd"
+                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+                />
+            </svg>
+        </label>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
