@@ -3,7 +3,7 @@
 let numCreatedCards = 0;
 let cardIDInfo = {};
 
-const editButtonCaller = "";
+let editCardCaller = "";
 
 class Card{
     constructor(cardName, type, player, year, other, image="default.png"){
@@ -89,7 +89,7 @@ function DeleteCard(buttonElement){
 }
 
 function EditCard(){
-    const cardDiv = editButtonCaller.parentNode.parentNode;
+    const cardDiv = editCardCaller;
 
     if (cardDiv.id == "cardTemplate"){
         return; 
@@ -195,7 +195,7 @@ function openEditForm(buttonElement){
         return;
     }
     document.getElementById("editform").style.display = "block";
-    editButtonCaller = buttonElement;
+    editCardCaller = cardDiv;
 }
 
 function closeEditForm(){
