@@ -25,10 +25,10 @@
         <script type="text/javascript" src="cardManager.js"></script>
     </head>
     <body class="mb-3">
-        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light"> -->
             <!-- <div class="container-fluid">
           <a class="navbar-brand" href="#">CARD CENTRAL</a> -->
-            <div class="container-fluid">
+            <!-- <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,73 @@
                     </a>
                 </div>
             </div>
+        </nav> -->
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+            <!-- <div class="container-fluid">
+              <a class="navbar-brand" href="#">CARD CENTRAL</a> -->
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <!-- <img
+                        src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+                        alt=""
+                        width="30"
+                        height="24"
+                        class="d-inline-block align-text-top"
+                    /> -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-person-badge-fill"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"
+                        />
+                    </svg>
+                    CARD CENTRAL
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link active"
+                                aria-current="page"
+                                href="cards.html"
+                                ><b>
+                                    My Cards
+                                </b></a
+                            >
+                        </li>
+                    </ul>
+                    <!-- <ul class="navbar-nav justify-content-end">
+                        <li>
+                            <button class="btn btn-outline-success" type="button">
+                                Profile
+                            </button>
+                        </li>
+                    </ul> -->
+                    <a href="profile.html">
+                        <button class="btn btn-outline-success" type="button">
+                            <b>Profile</b>
+                        </button>
+                    </a>
+                </div>
+            </div>
         </nav>
+
         <section id="gallery">
             <h1 class="m-5">Your Cards</h1>
             <!-- <div class="flex-container"> -->
@@ -81,20 +147,19 @@
                 <div class="cardTemplate" id="cardTemplate">
                     <img
                         class="card-img-top"
-                        src="michael_jordan.jpeg"
+                        src="default.png"
                         alt=""
                     />
                     <div class="card-body">
                         <h5 class="card-title"><b>Demo Card</b></h5>
                         <div class="card-text">
-                            <p id="card-type"><b>Type:</b> NBA</p>
+                            <p id="card-type"><b>Type:</b> N/A</p>
                             <p id="card-player">
-                                <b>Player:</b> Michael Jordan
+                                <b>Player:</b> N/A
                             </p>
-                            <p id="card-year"><b>Year:</b> 1985</p>
+                            <p id="card-year"><b>Year:</b> N/A</p>
                             <p id="card-other">
-                                <b>Other Info:</b> Very rare card. Worth
-                                $32,000.
+                                <b>Other Info:</b> Treat this card like treasure!
                             </p>
                         </div>
                         <!-- OPENING EDIT FORM BUTTON -->
@@ -272,7 +337,7 @@
                 <textarea
                     placeholder="This card is in good quality..."
                     name="msg"
-                    id="msgE"
+                    id="cOtherE"
                 ></textarea>
 
                 <!-- Testing -->
@@ -281,7 +346,7 @@
                     ><b>Upload an Image of Your Card</b></label
                 >
                 <input
-                    onchange="previewFile(event)"
+                    onchange="previewFileE(event)"
                     id="imageUploadE"
                     type="file"
                     accept="image/*"
@@ -290,8 +355,8 @@
                     class="form-control"
                     capture
                 />
-
-                <img id="img-preview" src="" width="100"></img>
+                
+                <img id="img-previewE" src="" width="100"></img>
                 <!-- Testing -->
                 
                 <!-- SO NOW IM SEEING IF DOING THE ONSUBMIT HERE WILL WORK -->

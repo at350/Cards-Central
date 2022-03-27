@@ -42,7 +42,6 @@ body {
 }
 
 .chat-popup {
-    display: none;
     position: fixed;
     bottom: 0;
     right: 15px;
@@ -50,6 +49,9 @@ body {
     z-index: 9;
     max-height: 80%;
     overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
 }
 
 .form-container {
@@ -186,10 +188,36 @@ body {
 }
 
 .edit-popup {
-    display: none;
     position: fixed;
     bottom: 0;
     left: 15px;
     border: 3px solid #f1f1f1;
     z-index: 9;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
 }
+
+/* #myForm {
+    transition: display 2s, display 2s;
+}
+
+#editform {
+    transition: display 2s, display 2s;
+} */
+
+/* in the process of googling right now */
+
+/* .edit-popup:hover {
+    animation-name: forms;
+    animation-duration: .5s;
+}
+
+@keyframes forms {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} */

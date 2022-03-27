@@ -18,6 +18,7 @@ class Card{
 
 let card = new Card("Honus Wagner Rare Card", "MLB", "Honus Wagner", 1910, "Extemely Valuable. ~$6.6 Million", "honus_wagner.jpg");
 let card2 = new Card("Athlete Common Card", "League", "Athlete", 1945, "I love this athlete!");
+let card3 = new Card("Michael Jordan", "NBA", "Michael Jackson", 1994, "Extremely Valuable", "michael_jordan.jpeg");
 
 (function(window, document, undefined){
     window.onload = init;
@@ -27,7 +28,7 @@ let card2 = new Card("Athlete Common Card", "League", "Athlete", 1945, "I love t
         const cardTemplate = fileDiv.querySelector(".cardTemplate");
 
         CreateNewCard(card);
-        CreateNewCard(card2);
+        CreateNewCard(card3);
         numCreatedCards++;
       }
     
@@ -64,6 +65,7 @@ function CreateNewCard(card){
 
     if (imageInput.value != ""){
         cardIMG.src = image.src;
+        card.image = image.src
         console.log("Valid image")
     }
     else{
@@ -78,6 +80,11 @@ function CreateNewCard(card){
 }
 function previewFile(event) {
     var image = document.querySelector("#img-preview");
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+function previewFileE(event) {
+    var image = document.querySelector("#img-previewE");
     image.src = URL.createObjectURL(event.target.files[0]);
 }
 
@@ -104,7 +111,10 @@ function EditCard(){
     const editedPlayer = editForm.querySelector("#cPlayerE").value;
     const editedYear = editForm.querySelector("#cYearE").value;
     const editedOther = editForm.querySelector("#cOtherE").value;
+    const editedImageInput = document.getElementById("imageUploadE");
 
+    const editedImagePreview = document.getElementById("img-previewE");
+    console.log(editedImagePreview);
     if (editedTitle != ""){
         cardDiv.querySelector(".card-title").innerHTML = editedTitle.bold();
         card.cardName = editedTitle;
@@ -125,6 +135,13 @@ function EditCard(){
         cardDiv.querySelector("#card-other").innerHTML = "Other: ".bold() + editedOther;
         card.other = editedOther;
     }
+
+    if (editedImageInput.value != ""){
+        cardDiv.querySelector("#card-img-top").src = editedImagePreview.src;
+        card.image = editedImagePreview.src;
+    }
+
+    editedImagePreview.src = "";
 
     closeEditForm();
 }
@@ -198,17 +215,19 @@ function ValidateImage(path) {
 }
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("myForm").style.visibility = "visible";
+    document.getElementById("myForm").style.opacity = "1";
 }
 
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
     document.getElementById("cTit").value = "";
     document.getElementById("cType").value = "";
     document.getElementById("cPlayer").value = "";
     document.getElementById("cYear").value = "";
     document.getElementById("msg").value = "";
     document.getElementById("imageUpload").value = "";
+    document.getElementById("myForm").style.visibility = "hidden";
+    document.getElementById("myForm").style.opacity = "0";
 }
 
 function openEditForm(buttonElement){
@@ -217,17 +236,20 @@ function openEditForm(buttonElement){
     if (cardDiv.id == "cardTemplate"){
         return;
     }
-    document.getElementById("editform").style.display = "block";
+    // document.getElementById("editform").style.display = "block";
+    document.getElementById("editform").style.visibility = "visible";
+    document.getElementById("editform").style.opacity = "1";
     editCardCaller = cardDiv;
 }
 
 function closeEditForm(){
-    document.getElementById("editform").style.display = "none";
     document.getElementById("cTitE").value = "";
     document.getElementById("cTypeE").value = "";
     document.getElementById("cPlayerE").value = "";
     document.getElementById("cYearE").value = "";
     document.getElementById("cOtherE").value = "";
     document.getElementById("imageUploadE").value = "";
+    document.getElementById("editform").style.visibility = "hidden";
+    document.getElementById("editform").style.opacity = "0";
 }
 
