@@ -90,7 +90,8 @@ function DeleteCard(buttonElement){
     const cardDiv = buttonElement.parentNode.parentNode;
     if (cardDiv.id != "cardTemplate"){
         delete cardIDInfo[cardDiv.id];
-        cardDiv.remove();
+        cardDiv.classList.add("deleted-card");
+        cardDiv.addEventListener("animationend", function(){cardDiv.remove(); })
     }
 }
 

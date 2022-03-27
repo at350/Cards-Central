@@ -200,6 +200,23 @@ body {
     transition: visibility 0s, opacity 0.2s linear;
 }
 
+.deleted-card{
+    display: inline-block;
+    margin: 10px;
+    background-color: #cfcfcf;
+    animation-name: delete-card;
+    animation-duration: 1s;
+}
+
+@keyframes delete-card {
+    from {
+        width: 25%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
 /* #myForm {
     transition: display 2s, display 2s;
 }
