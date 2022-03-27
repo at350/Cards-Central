@@ -1,7 +1,7 @@
 // import data from "data.js";
 
 let numCreatedCards = 0;
-
+let cardIDInfo = {};
 class Card{
     constructor(cardName, type, player, year, other, image="default.png"){
         this.cardName = cardName;
@@ -13,7 +13,7 @@ class Card{
     }
 }
 
-let card = new Card("Honus Wagner Rare Card", "MLB", "Honus Wagner", 1910, "Very rare card");
+let card = new Card("Honus Wagner Rare Card", "MLB", "Honus Wagner", 1910, "Extemely Valuable. ~$6.6 Million", "honus_wagner.jpg");
 let card2 = new Card("Athlete Common Card", "League", "Athlete", 1945, "I love this athlete!");
 
 (function(window, document, undefined){
@@ -40,7 +40,7 @@ function CreateNewCard(card){
     newCard.id = "card" + numCreatedCards.toString();
 
     const title = newCard.querySelector(".card-title");
-    title.innerHTML = card.cardName;
+    title.innerHTML = card.cardName.bold();
 
     const type = newCard.querySelector("#card-type")
     type.innerHTML = "Type: ".bold() + card.type;
@@ -54,8 +54,11 @@ function CreateNewCard(card){
     var image = document.querySelector("#img-preview")
     const cardIMG = newCard.querySelector(".card-img-top");
     
+    const button = newCard.querySelector(".btn btn-outline-success btn-sm")
+    // button.id = "edit-button"+numCreatedCards.toString();
     const imageInput = document.getElementById("imageUpload");
     console.log(imageInput.value);
+
     if (imageInput.value != ""){
         cardIMG.src = image.src;
         console.log("Valid image")
@@ -64,6 +67,8 @@ function CreateNewCard(card){
         cardIMG.src = card.image;
         console.log(card.image)
     }
+
+    cardIDInfo[newCard.id] = card;
 
     image.src = ""
     numCreatedCards++;
@@ -82,10 +87,15 @@ function DeleteCard(buttonElement){
 
 function EditCard(buttonElement){
     const cardDiv = buttonElement.parentNode.parentNode;
-
     if (cardDiv.id == "cardTemplate"){
-        return;
+        return; 
     }
+    console.log(cardIDInfo);
+
+    current_card = cardIDInfo[cardDiv.id]
+    console.log(cardDiv.id);
+    console.log(current_card);
+
 
     // edit function
 }
@@ -100,12 +110,7 @@ function processForm() {
     data.append("msg", document.getElementById("msg").value);
     data.append("image", document.getElementById("imageUpload").value);
 
-    // for (let [k, v] of data.entries()) {
-    //     console.log(k +" "+v);   
-    // }
-    
-    let temp = 0;
-    // cardName, type, player, year, other = Object.values(data.entries);
+    var temp = 0;
     for (let [k, v] of data.entries())
     {
         switch(temp){
@@ -130,16 +135,8 @@ function processForm() {
         }
         temp++;
     }
-    
 
     console.log(cardName + " " + type +" "+player+" "+year+" "+other+" ");
-
-    // if (ValidateImage(image)){
-    //     let testCard = new Card(cardName, type, player, year, other, image);
-    // }
-    // else{
-    //     let testCard = new Card(cardName, type, player, year, other);
-    // }
 
     let testCard = new Card(cardName, type, player, year, other);
     CreateNewCard(testCard);
@@ -180,23 +177,16 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-function openEditForm(){
-    document.getElementById("editForm").style.display = "block";
+function openEditForm(buttonElement){
+    const cardDiv = buttonElement.parentNode.parentNode;
+
+    if (cardDiv.id == "cardTemplate"){
+        return;
+    }
+    document.getElementById("editform").style.display = "block";
 }
 
-
-// $("#profileImage").click(function(e) {
-//     $("#imageUpload").click();
-// });
-
-// function fasterPreview( uploader ) {
-//     if ( uploader.files && uploader.files[0] ){
-//           $('#profileImage').attr('src', 
-//              window.URL.createObjectURL(uploader.files[0]) );
-//     }
-// }
-
-// $("#imageUpload").change(function(){
-//     fasterPreview( this );
-// });
+function closeEditForm(){
+    document.getElementById("editform").style.display = "none";
+}
 

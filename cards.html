@@ -17,6 +17,9 @@
             integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
             crossorigin="anonymous"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" href="/card.jpg" />
         <script type="text/javascript" src="cardManager.js"></script>
@@ -24,7 +27,7 @@
     <body class="mb-3">
         <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
             <!-- <div class="container-fluid">
-          <a class="navbar-brand" href="#">CARDS CENTRAL</a> -->
+          <a class="navbar-brand" href="#">CARD CENTRAL</a> -->
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
                     <svg
@@ -39,7 +42,7 @@
                             d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"
                         />
                     </svg>
-                    CARDS CENTRAL
+                    CARD CENTRAL
                 </a>
                 <button
                     class="navbar-toggler"
@@ -82,7 +85,7 @@
                         alt=""
                     />
                     <div class="card-body">
-                        <h5 class="card-title">Demo Card</h5>
+                        <h5 class="card-title"><b>Demo Card</b></h5>
                         <div class="card-text">
                             <p id="card-type"><b>Type:</b> NBA</p>
                             <p id="card-player">
@@ -94,11 +97,9 @@
                                 $32,000.
                             </p>
                         </div>
-                        <a
-                            class="btn btn-outline-success btn-sm"
-                            onlick="openEditForm()"
-                            >Edit</a
-                        >
+                        <!-- OPENING EDIT FORM BUTTON -->
+                        <button type="button" class="btn btn-outline-success btn-sm" onclick="openEditForm(this)">Edit</button>
+                        <!-- DELETE CARD BUTTON -->
                         <a
                             class="btn-outline-danger btn p-1"
                             onclick="return DeleteCard(this)"
@@ -125,6 +126,7 @@
             <!-- </div> -->
         </section>
 
+        <!-- THIS IS THE ADD CARD FORM -->
         <div class="chat-popup" id="myForm">
             <!-- THE BELOW "ERROR" IS NOT AN ERROR??? vsc is just bad -->
             <form onsubmit="return processForm()" class="form-container">
@@ -140,6 +142,93 @@
                         id="cTit"
                         class="border border-dark rounded-end rounded-3"
                         required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cType" class="input-group-text p-1"
+                        ><b>Type</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cType"
+                        id="cType"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cPlayer" class="input-group-text p-1"
+                        ><b>Player</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cPlayer"
+                        id="cPlayer"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <div class="input-group mb-2">
+                    <label for="cYear" class="input-group-text p-1"
+                        ><b>Year</b></label
+                    >
+                    <input
+                        type="number"
+                        name="cYear"
+                        id="cYear"
+                        min="0"
+                        class="border border-dark rounded-end rounded-3"
+                        required
+                    />
+                </div>
+                <label for="msg"><b>Other Info</b></label>
+                <textarea
+                    placeholder="This card is in good quality..."
+                    name="msg"
+                    id="msg"
+                    required
+                ></textarea>
+
+                <!-- Testing -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <label for="imageUpload"
+                    ><b>Upload an Image of Your Card</b></label
+                >
+                <input
+                    onchange="previewFile(event)"
+                    id="imageUpload"
+                    type="file"
+                    accept="image/*"
+                    name="profile_photo"
+                    placeholder="Photo"
+                    class="form-control"
+                    capture
+                />
+
+                <img id="img-preview" src="" width="100"></img>
+                <!-- Testing -->
+
+                <button type="submit" class="btn mt-3">Add</button>
+
+                <button type="button" class="btn cancel" onclick="closeForm()">
+                    Close
+                </button>
+            </form>
+        </div>
+        <!-- THIS IS THE EDIT FORM -->
+         <div class="edit-popup" id="editform">
+            <form onsubmit="return EditCard(this)" class="form-container">
+                <h1 class="text-center">Edit Card</h1>
+                <!-- <label for="cTit" class="input-group-text"><b>Title</b></label> -->
+                <div class="input-group mb-2">
+                    <label for="cTit" class="input-group-text p-1"
+                        ><b>Title</b></label
+                    >
+                    <input
+                        type="text"
+                        name="cTit"
+                        id="cTit"
+                        class="border border-dark rounded-end rounded-3"
                     />
                 </div>
                 <div class="input-group mb-2">
@@ -202,14 +291,13 @@
                 <img id="img-preview" src="" width="100"></img>
                 <!-- Testing -->
 
-                <button type="submit" class="btn mt-3">Add</button>
+                <button type="submit" class="btn mt-3">Edit</button>
 
-                <button type="button" class="btn cancel" onclick="closeForm()">
+                <button type="button" class="btn cancel" onclick="closeEditForm()">
                     Close
                 </button>
             </form>
         </div>
-
         <input type="button" id="check" onclick="openForm()" />
         <label class="chat-btn" for="check">
             <i class="fa fa-commenting-o comment"></i>
