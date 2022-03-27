@@ -1,5 +1,3 @@
-// import data from "data.js";
-
 let numCreatedCards = 0;
 let cardIDInfo = {};
 
@@ -16,9 +14,9 @@ class Card{
     }
 }
 
-let card = new Card("Honus Wagner Rare Card", "MLB", "Honus Wagner", 1910, "Extemely Valuable. ~$6.6 Million", "honus_wagner.jpg");
+let card1 = new Card("Honus Wagner Rare Card", "MLB", "Honus Wagner", 1910, "Extemely Valuable. ~$6.6 Million", "honus_wagner.jpg");
 let card2 = new Card("Athlete Common Card", "League", "Athlete", 1945, "I love this athlete!");
-let card3 = new Card("Michael Jordan", "NBA", "Michael Jackson", 1994, "Extremely Valuable", "michael_jordan.jpeg");
+let card3 = new Card("Michael Jordan Card", "NBA", "Michael Jordan", 1994, "Extremely Valuable! Jordan is such an amazing athlete!", "michael_jordan.jpeg");
 
 (function(window, document, undefined){
     window.onload = init;
@@ -27,7 +25,7 @@ let card3 = new Card("Michael Jordan", "NBA", "Michael Jackson", 1994, "Extremel
         const fileDiv = document.getElementById("cards-div");
         const cardTemplate = fileDiv.querySelector(".cardTemplate");
 
-        CreateNewCard(card);
+        CreateNewCard(card1);
         CreateNewCard(card3);
         numCreatedCards++;
       }
@@ -117,28 +115,28 @@ function EditCard(){
     console.log(editedImagePreview);
     if (editedTitle != ""){
         cardDiv.querySelector(".card-title").innerHTML = editedTitle.bold();
-        card.cardName = editedTitle;
+        current_card.cardName = editedTitle;
     }
     if (editedType != ""){
         cardDiv.querySelector("#card-type").innerHTML = "Type: ".bold() + editedType;
-        card.type = editedType;
+        current_card.type = editedType;
     }
     if (editedPlayer != ""){
         cardDiv.querySelector("#card-player").innerHTML = "Player: ".bold() + editedPlayer;
-        card.player = editedPlayer;
+        current_card.player = editedPlayer;
     }
     if (editedYear != ""){
         cardDiv.querySelector("#card-year").innerHTML = "Year: ".bold() + editedYear;
-        card.year = editedYear;
+        current_card.year = editedYear;
     }
     if (editedOther != ""){
         cardDiv.querySelector("#card-other").innerHTML = "Other: ".bold() + editedOther;
-        card.other = editedOther;
+        current_card.other = editedOther;
     }
 
     if (editedImageInput.value != ""){
         cardDiv.querySelector(".card-img-top").src = editedImagePreview.src;
-        card.image = editedImagePreview.src;
+        current_card.image = editedImagePreview.src;
     }
 
     editedImagePreview.src = "";
@@ -232,11 +230,22 @@ function closeForm() {
 
 function openEditForm(buttonElement){
     const cardDiv = buttonElement.parentNode.parentNode;
-
     if (cardDiv.id == "cardTemplate"){
         return;
     }
+
+    var ccard = cardIDInfo[cardDiv.id];
+
+    const editForm = document.getElementById("editform");
+    editForm.querySelector("#cTitE").placeholder = ccard.cardName;
+    editForm.querySelector("#cTypeE").placeholder = ccard.type;
+    editForm.querySelector("#cPlayerE").placeholder = ccard.player;
+    editForm.querySelector("#cYearE").placeholder = ccard.year;
+    editForm.querySelector("#cOtherE").placeholder = ccard.other;
+
+
     // document.getElementById("editform").style.display = "block";
+
     document.getElementById("editform").style.visibility = "visible";
     document.getElementById("editform").style.opacity = "1";
     editCardCaller = cardDiv;
