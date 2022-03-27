@@ -137,7 +137,7 @@ function EditCard(){
     }
 
     if (editedImageInput.value != ""){
-        cardDiv.querySelector("#card-img-top").src = editedImagePreview.src;
+        cardDiv.querySelector(".card-img-top").src = editedImagePreview.src;
         card.image = editedImagePreview.src;
     }
 
