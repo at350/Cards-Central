@@ -84,6 +84,7 @@ function previewFile(event) {
 function DeleteCard(buttonElement){
     const cardDiv = buttonElement.parentNode.parentNode;
     if (cardDiv.id != "cardTemplate"){
+        cardIDInfo.remove(cardDiv.id);
         cardDiv.remove();
     }
 }
@@ -100,10 +101,11 @@ function EditCard(){
     console.log(cardDiv.id);
     console.log(current_card);
 
-    closeEditForm();
 
-    return false; // this didnt work
-    // edit function
+
+
+
+    closeEditForm();
 }
 
 function processForm() {
