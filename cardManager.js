@@ -84,7 +84,7 @@ function previewFile(event) {
 function DeleteCard(buttonElement){
     const cardDiv = buttonElement.parentNode.parentNode;
     if (cardDiv.id != "cardTemplate"){
-        cardIDInfo.remove(cardDiv.id);
+        delete cardIDInfo[cardDiv.id];
         cardDiv.remove();
     }
 }
@@ -95,15 +95,36 @@ function EditCard(){
     if (cardDiv.id == "cardTemplate"){
         return; 
     }
-    console.log(cardIDInfo);
-
     current_card = cardIDInfo[cardDiv.id]
-    console.log(cardDiv.id);
     console.log(current_card);
 
+    const editForm = document.getElementById("editform");
+    const editedTitle = editForm.querySelector("#cTitE").value;
+    const editedType = editForm.querySelector("#cTypeE").value;
+    const editedPlayer = editForm.querySelector("#cPlayerE").value;
+    const editedYear = editForm.querySelector("#cYearE").value;
+    const editedOther = editForm.querySelector("#cOtherE").value;
 
-
-
+    if (editedTitle != ""){
+        cardDiv.querySelector(".card-title").innerHTML = editedTitle.bold();
+        card.cardName = editedTitle;
+    }
+    if (editedType != ""){
+        cardDiv.querySelector("#card-type").innerHTML = "Type: ".bold() + editedType;
+        card.type = editedType;
+    }
+    if (editedPlayer != ""){
+        cardDiv.querySelector("#card-player").innerHTML = "Player: ".bold() + editedPlayer;
+        card.player = editedPlayer;
+    }
+    if (editedYear != ""){
+        cardDiv.querySelector("#card-year").innerHTML = "Year: ".bold() + editedYear;
+        card.year = editedYear;
+    }
+    if (editedOther != ""){
+        cardDiv.querySelector("#card-other").innerHTML = "Other: ".bold() + editedOther;
+        card.other = editedOther;
+    }
 
     closeEditForm();
 }
@@ -206,7 +227,7 @@ function closeEditForm(){
     document.getElementById("cTypeE").value = "";
     document.getElementById("cPlayerE").value = "";
     document.getElementById("cYearE").value = "";
-    document.getElementById("msgE").value = "";
+    document.getElementById("cOtherE").value = "";
     document.getElementById("imageUploadE").value = "";
 }
 
